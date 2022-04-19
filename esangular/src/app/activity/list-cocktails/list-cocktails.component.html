@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="submitDrinks(f)">
+    <div class="box-form">
+        <div class="card">
+            <div class="card-body">
+                <label for="idDrink"></label>
+                <input type="text" name="idDrink" id="textname" placeholder="Inserire cocktail..." maxlength="1" required ngModel>
+                <button class="btn btn-outline-primary" type="submit" [disabled]="f.invalid" (click)="getDrinks()">Lista cocktails</button>          
+            </div>
+        </div>    
+    </div>
+</form>
+
+<div class="list-cocktails" *ngFor="let cocktail of cocktails">
+    <h1> {{ cocktail.idDrink }}</h1>
+    <h1> {{ cocktail.strDrink }}</h1>
+    <h1> {{ cocktail.strCategory }}</h1>
+    <h1> {{ cocktail.strInstructionsIT }}</h1>
+</div>
+
+<ng-template #noProject>
+    <p>Nessun progetto aperto</p>
+</ng-template>
